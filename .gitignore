@@ -1,8 +1,8 @@
-backend/.env
-backend/node_modules/
-backend/data/*.db
-frontend/.env
-frontend/node_modules/
-frontend/dist/
+c2_web_control/backend/.env
+c2_web_control/backend/node_modules/
+c2_web_control/backend/data/*.db
+c2_web_control/frontend/.env
+c2_web_control/frontend/node_modules/
+c2_web_control/frontend/dist/
 web_clone/node_modules/
 web_clone/dist/
