@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #020617;
+}
+
+.glass-card {
+  border: 1px solid rgba(51, 65, 85, 0.75);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.85), rgba(2, 6, 23, 0.85));
+  backdrop-filter: blur(8px);
+  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(148, 163, 184, 0.35);
+  box-shadow: 0 16px 42px rgba(15, 23, 42, 0.35);
+}
+
+.panel-shell {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+.panel-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.8), transparent);
+  pointer-events: none;
+}
+
+.panel-inner-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(16, 185, 129, 0.08), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.08), transparent 30%);
+  pointer-events: none;
+}
+
+.status-pill {
+  border: 1px solid rgba(71, 85, 105, 0.65);
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 9999px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.72rem;
+  line-height: 1rem;
+  letter-spacing: 0.04em;
+  color: rgb(148 163 184);
+}
+
+.control-input,
+.control-select {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid rgba(71, 85, 105, 0.65);
+  background: rgba(2, 6, 23, 0.82);
+  color: rgb(241 245 249);
+  padding: 0.9rem 1rem;
+  outline: none;
+  transition: border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.control-input::placeholder {
+  color: rgb(100 116 139);
+}
+
+.control-input:focus,
+.control-select:focus {
+  border-color: rgba(52, 211, 153, 0.75);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+  background: rgba(2, 6, 23, 0.92);
+}
+
+.control-select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgb(148 163 184) 50%),
+    linear-gradient(135deg, rgb(148 163 184) 50%, transparent 50%);
+  background-position:
+    calc(100% - 22px) calc(50% - 3px),
+    calc(100% - 16px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 2.75rem;
+}
+
+.control-button {
+  border-radius: 1rem;
+  background: rgb(16 185 129);
+  color: rgb(2 6 23);
+  font-weight: 600;
+  transition: transform 220ms ease, background 220ms ease, box-shadow 220ms ease;
+}
+
+.control-button:hover {
+  transform: translateY(-1px);
+  background: rgb(52 211 153);
+  box-shadow: 0 12px 24px rgba(16, 185, 129, 0.16);
+}
+
+.datetime-shell {
+  position: relative;
+}
+
+.datetime-shell .picker-trigger {
+  position: absolute;
+  right: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid rgba(71, 85, 105, 0.6);
+  background: rgba(15, 23, 42, 0.88);
+  color: rgb(148 163 184);
+  border-radius: 0.8rem;
+  padding: 0.45rem 0.6rem;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+.datetime-shell .picker-trigger:hover {
+  background: rgba(30, 41, 59, 0.95);
+  color: rgb(226 232 240);
+  border-color: rgba(100, 116, 139, 0.7);
+}
+
+.datetime-shell input[type="datetime-local"] {
+  padding-right: 4.3rem;
+}
+
+.datetime-shell input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.toggle {
+  position: relative;
+  width: 3.35rem;
+  height: 1.9rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(71, 85, 105, 0.8);
+  background: rgba(15, 23, 42, 0.95);
+  transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.toggle::after {
+  content: "";
+  position: absolute;
+  top: 0.18rem;
+  left: 0.2rem;
+  width: 1.32rem;
+  height: 1.32rem;
+  border-radius: 9999px;
+  background: rgb(226 232 240);
+  transition: transform 220ms ease, background 220ms ease;
+}
+
+.toggle[data-on="true"] {
+  background: rgba(16, 185, 129, 0.22);
+  border-color: rgba(52, 211, 153, 0.5);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.08);
+}
+
+.toggle[data-on="true"]::after {
+  transform: translateX(1.42rem);
+  background: rgb(16 185 129);
+}
+
+.slider {
+  appearance: none;
+  width: 100%;
+  height: 0.45rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.45), rgba(59, 130, 246, 0.35));
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 9999px;
+  background: rgb(226 232 240);
+  border: 2px solid rgb(16 185 129);
+  box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.08);
+}
+
+.slider::-moz-range-thumb {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 9999px;
+  background: rgb(226 232 240);
+  border: 2px solid rgb(16 185 129);
+  box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.08);
+}
+
+.fade-in-up {
+  animation: fadeInUp 500ms ease both;
+}
+
+.alert-glow {
+  box-shadow: 0 0 0 1px rgba(251, 113, 133, 0.2), 0 0 24px rgba(251, 113, 133, 0.2);
+}
+
+.login-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(16, 185, 129, 0.12), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.12), transparent 30%);
+  pointer-events: none;
+}
+
+.loading-dot {
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
