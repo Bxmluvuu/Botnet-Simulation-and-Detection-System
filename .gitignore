@@ -4,3 +4,5 @@ backend/data/*.db
 frontend/.env
 frontend/node_modules/
 frontend/dist/
+web_clone/node_modules/
+web_clone/dist/
